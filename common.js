@@ -24,9 +24,7 @@ function runScript (verbose, next)
 
     // Bundle and upload code.
     console.error('uploading tessel code...'.grey);
-    client.pushCode(__dirname + '/tessel/index.js', [], {
-    }, {
-    }, function (err, bundle) {
+    client.run(__dirname + '/tessel/index.js', [], {}, function (err, bundle) {
       // When this script ends, stop the client.
       client.once('script-stop', function (code) {
         console.log('stopped.'.grey);
